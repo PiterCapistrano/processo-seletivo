@@ -1,18 +1,17 @@
-## Getting Started
+# CRIANDO UM PEQUENO SISTEMA PARA VALIDAÇÃO DE PROCESSO SELETIVO
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Cases
 
-## Folder Structure
+Vamos explorar alguns outros cenários com fluxo condicionais, repetições e excepcionais.
 
-The workspace contains two folders by default, where:
+### Case 1:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Vamos imaginar que em um processo seletivo existe o valor base salarial de R$ 2.000,00 e o salário pretendido pelo candidato. Vamos elaborar um controle de fluxo onde:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+1. Se o valor salario base for maior que o valor salario pretendido, imprima: "LIGAR PARA O CANDIDATO";
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+2. Se o valor salario base for igual ao valor salario pretendido, imprima: "LIGAR PARA O CANDIDATO COM CONTRA PROPOSTA";
 
-## Dependency Management
+3. Senão imprima: "AGUARDANDO RESULTADO DEMAIS CANDIDATOS".
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Case 2:
