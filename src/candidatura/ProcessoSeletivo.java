@@ -35,15 +35,18 @@ public class ProcessoSeletivo {
         if (salarioBase >= salarioPretendido) {
           System.out.println("O candidato " + candidato + " foi selecionado para a vaga");
           System.out.println(" ");
-          candidatosSelecionados.add(candidato);
+          candidatosSelecionados.add(candidato); // Caso selecionado o candidato é adicionado a lista
         } else{
           System.out.println("o candidato " + candidato + " Foi recusado para a vaga");
           System.out.println(" ");
         }
         candidatoAtual++;
       }
-      System.out.println("Candidatos selecionados = " + candidatosSelecionados );
+      System.out.println("Candidatos selecionados = " + candidatosSelecionados.size());
       imprimirSelecionados(candidatosSelecionados.toArray(new String[0]));
+      for(String candidato: candidatosSelecionados){
+        ligando(candidato);
+      }
   }
   static void analisarCandidato(double salarioPretendido){
       double salarioBase = 2000.00;
@@ -58,6 +61,7 @@ public class ProcessoSeletivo {
   static double valorPretendido(){
     return ThreadLocalRandom.current().nextDouble(1800.0, 2200.0);
   }
+  //! Caso 3:
   static void imprimirSelecionados(String[] candidatos){
     System.out.println("Imprimindo a lista de candidatos informando o indice do elemento");
 
@@ -69,6 +73,34 @@ public class ProcessoSeletivo {
 
     for(String candidato: candidatos){
       System.out.println("O candidato selecionado foi " + candidato);
+      System.out.println(" ");
     }
   }
+  //! Caso 4:
+  static boolean tocando(){
+    boolean atendeu = new Random().nextInt(3) == 1;
+
+    return !atendeu;
+  }
+  static void ligando(String candidato){
+    int tentativasRealizadas =1;
+    boolean continuarTentando = true;
+    boolean atendeu = false;
+      do{
+        atendeu = tocando();
+        continuarTentando = !atendeu;
+        if (continuarTentando) 
+        tentativasRealizadas++;
+      else
+        System.out.println("CONTATO REALIZADO COM SUCESSO!");
+      } while(continuarTentando && tentativasRealizadas <3);
+      if (atendeu){
+        System.out.println("CONSEGUIMOS CONTATO COM " + candidato + " APÓS " + tentativasRealizadas + " TENTATIVAS" );
+        System.out.println(" ");
+      }else{
+        System.out.println("NÃO CONSEGUIMOS CONTATO COM O " + candidato + ", NÚMERO MAXIMO TENTATIVAS " + tentativasRealizadas + " REALIZADAS");
+        System.out.println(" ");
+      }
+  }
+  
 }
